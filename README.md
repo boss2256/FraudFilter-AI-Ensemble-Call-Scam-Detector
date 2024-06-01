@@ -1,11 +1,20 @@
-# Jia Jun Project README
-
-## Personal Information
-- **Full Name:** [Your Full Name]
-- **Email:** [Your Email Address]
-
 ## Project Overview
 This project involves the development of a machine learning pipeline to classify phone calls as 'scam' or 'not scam' based on historical call data. The goal is to enhance telecommunications security by identifying and alerting on potential scam calls.
+
+![Pipeline](pipeline.png)
+
+## Setup instructions
+To run this project, follow these steps:
+1. Open Git Bash.
+2. Create and activate
+```
+python -m venv myenv
+source myenv/Scripts/activate
+```
+3. Run the bash script to execute the machine learning pipeline:
+```
+bash run.sh
+```
 
 ## Folder Structure
 ```
