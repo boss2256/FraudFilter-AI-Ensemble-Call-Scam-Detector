@@ -1,0 +1,53 @@
+Model Training and Validation:
+Purpose: To script the model training process using the preprocessed data.
+Explanation: This will involve loading the preprocessed data, configuring and training several machine learning models, and evaluating their performance using appropriate metrics.
+Feature Selection and Tuning:
+Purpose: To fine-tune the models and select the most effective features.
+Explanation: This includes using techniques like cross-validation and grid search to find the optimal model settings and feature combinations that enhance prediction accuracy.
+Model Serialization:
+Purpose: To save the trained models for deployment or further evaluation.
+Explanation: The best-performing model will be serialized using libraries such as joblib or pickle to ensure it can be loaded and used in different environments or further integrated into production systems.
+Pipeline Automation:
+Purpose: To script the entire process from data loading to model output in a way that allows for easy execution and reproducibility.
+Explanation: This includes writing a bash script (run.sh) that handles the setup and execution of the pipeline, ensuring all dependencies are installed and the environment is correctly configured.
+Documentation:
+Purpose: To provide clear documentation on how the pipeline works and how it can be used.
+Explanation: The README.md will detail every step of the pipeline, explain the choice of models, describe the data preprocessing steps, and guide the user on how to run the pipeline and modify parameters.
+
+
+# import joblib
+# import numpy as np
+# from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+# from sklearn.linear_model import LogisticRegression
+# from sklearn.metrics import classification_report
+#
+# # Load the preprocessor and the dataset
+# preprocessor = joblib.load('data/preprocessor.joblib')
+# data = np.load('data/train_test_data.npz')
+# X_train, y_train = data['X_train'], data['y_train']
+# X_test, y_test = data['X_test'], data['y_test']
+#
+# # Define and train multiple models
+# models = {
+#     'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
+#     'Gradient Boosting': GradientBoostingClassifier(n_estimators=100, random_state=42),
+#     'Logistic Regression': LogisticRegression(max_iter=300, random_state=42)
+# }
+#
+# # Train and evaluate models
+# results = {}
+# for name, model in models.items():
+#     model.fit(X_train, y_train)
+#     predictions = model.predict(X_test)
+#     results[name] = classification_report(y_test, predictions, output_dict=True)
+#     print(f"{name} model evaluation:")
+#     print(classification_report(y_test, predictions))
+#
+# # Identify the best model (example based on F1 score for the 'Scam' class)
+# best_model_name = max(results, key=lambda x: results[x]['1']['f1-score'])
+# best_model = models[best_model_name]
+#
+# # Save the best model
+# joblib.dump(best_model, 'data/best_model.joblib')
+
+
