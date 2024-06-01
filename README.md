@@ -18,7 +18,7 @@ bash run.sh
 
 ## Folder Structure
 ```
-Jia Jun (project directory)/
+FraudFilter-AI-Ensemble-Call-Scam-Detector/
 │
 ├── data/
 │   ├── calls.db         # The database file with call records.
